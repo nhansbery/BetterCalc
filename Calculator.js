@@ -3,6 +3,9 @@ var memory = "0";
 var operator = 0;
 var degree = "true";
 
+/**
+ * Displays the current input onto the calculator's screen
+ */
 function displayCurrentInput() {
     if(currentInput == ""){
         document.getElementById('screen').value = memory;
@@ -11,6 +14,10 @@ function displayCurrentInput() {
     }
 }
 
+/**
+ * Adds the number onto the screen that user selects until it reaches 30 numbers, then restarts
+ * @param {number} dig the button/value that the user selects that they want to display
+ */
 function addDigit(dig) {
     if ((eval(currentInput) == 0) && (currentInput.indexOf(".") == -1)) {
         currentInput = dig;
@@ -20,7 +27,9 @@ function addDigit(dig) {
     displayCurrentInput();
 }
 
-// Adds a decimal to the current input
+/**
+ * Adds a decimal to the number on the screen each time the user selects it
+ */
 function addDecimal() {
     if (currentInput.length == 0) {
         //no leading ".", use "0."
@@ -34,7 +43,9 @@ function addDecimal() {
     displayCurrentInput();
 }
 
-// Clears everything.
+/**
+ * Clears all of the values that are on the calculator screen
+ */
 function allClear() {
     currentInput = "";
     operator = 0;                //clear operator
@@ -42,13 +53,18 @@ function allClear() {
     displayCurrentInput();
 }
 
-// Clear the current input back to 0
+/**
+ * Clears the current input value to 0
+ */
 function cancel() {
     currentInput = "";
     displayCurrentInput();
 }
 
-// Stores the last operator pushed for multiply, divide, add, or subtract.
+/**
+ * Stores the last operator pushed for multiply, divide, add, or subtract.
+ * @param {object} op all of the different operations like Addition (+), Subtraction (-), Multiplication (*), and Division (/).
+ */
 function storeOperator(op) {
 
     if(currentInput == ""){
@@ -69,7 +85,10 @@ function storeOperator(op) {
     displayCurrentInput();
 }
 
-// Calculate using operator, the memory and what is current
+
+/**
+ * Calculates the inputted numbers using all of the operators on the calculator using the memory and what is current
+ */
 function calculate() {
     if (operator == 1) { currentInput = eval(memory) * eval(currentInput); };
     if (operator == 2 && currentInput != "0"){ currentInput = eval(memory) / eval(currentInput);};
@@ -82,7 +101,10 @@ function calculate() {
     displayCurrentInput();
 }
 
-// Change the sign of the current input
+
+/**
+ * Changes the sign of the current input if the wrong operator was selected; i.e. multiplication operator is selected when you are trying to execute an addition problem, changeSign is selected and they switch
+ */
 function changeSign() {
 
     if(currentInput == ""){
@@ -95,7 +117,10 @@ function changeSign() {
 }
 
 
-// Change the current input to a percentage
+
+/**
+ * Changes the number that is on the screen currently from an integer into a percentage
+ */
 function percentage(){
 
     if(currentInput == ""){
@@ -113,7 +138,9 @@ function percentage(){
 
 }
 
-// Calculate the factorial of the current input
+/**
+ * Calculates the factorial of the current number when the X! button is selected
+ */
 function factorial() {
 
     if(currentInput == ""){
@@ -143,7 +170,9 @@ function factorial() {
 
 }
 
-// Calculate the square of the current input
+/**
+ * Squares the number (x = x*x), when the x^2 button is selected
+ */
 function square() {
 
     if(currentInput == ""){
@@ -161,7 +190,9 @@ function square() {
 
 }
 
-// Calculate the square root of the current input
+/**
+ * Turns the current number into it's square root when the √x button is selected
+ */
 function squareRoot() {
 
     if(currentInput == ""){
@@ -180,7 +211,9 @@ function squareRoot() {
 
 }
 
-// Calculate the inverse of the current input
+/**
+ * Calculates what the inverse of the current number is when the 1/X button is selected
+ */
 function inverse() {
 
     if(currentInput == ""){
@@ -206,6 +239,9 @@ function inverse() {
 
 }
 
+/**
+ * Takes the current number and gives the Sin of it when the sin button is selected, a trigometric function
+ */
 function tigSin(){
 
     if(currentInput == ""){
@@ -226,6 +262,9 @@ function tigSin(){
 
 }
 
+/**
+ * Takes the current number and gives the Cos of it when the cos button is selected, a trigometric function
+ */
 function tigCos(){
 
     if(currentInput == ""){
