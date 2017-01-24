@@ -1,6 +1,6 @@
 var currentInput = "";
-var memory = "0";
-var operator = 0;
+var memory = "0"; //always starts with zero displayed on the screen
+var operator = 0; //always starts out with no (or zero) operator being selected
 var degree = "true";
 
 /**
@@ -64,6 +64,7 @@ function cancel() {
 /**
  * Stores the last operator pushed for multiply, divide, add, or subtract.
  * @param {object} op all of the different operations like Addition (+), Subtraction (-), Multiplication (*), and Division (/).
+ * @return {number} if there is no operator selected, returns what was there originally
  */
 function storeOperator(op) {
 
@@ -104,6 +105,7 @@ function calculate() {
 
 /**
  * Changes the sign of the current input if the wrong operator was selected; i.e. multiplication operator is selected when you are trying to execute an addition problem, changeSign is selected and they switch
+ * @return {number} if there is no change to the sign requested, returns what was there originally
  */
 function changeSign() {
 
@@ -120,6 +122,7 @@ function changeSign() {
 
 /**
  * Changes the number that is on the screen currently from an integer into a percentage
+ * @return {number} if no button was selected, returns what was there
  */
 function percentage(){
 
@@ -131,7 +134,7 @@ function percentage(){
         calculate();
     }
 
-    currentInput = currentInput / 100;
+    currentInput = currentInput / 100; //the percentage of a number is always that number divided by 100
     operator = 0;
     memory = "0";
     displayCurrentInput();
@@ -140,6 +143,7 @@ function percentage(){
 
 /**
  * Calculates the factorial of the current number when the X! button is selected
+ * @return {number} if no button was selected, returns what was there
  */
 function factorial() {
 
@@ -172,6 +176,7 @@ function factorial() {
 
 /**
  * Squares the number (x = x*x), when the x^2 button is selected
+ * @return {number} if no button was selected, returns what was there
  */
 function square() {
 
@@ -183,7 +188,7 @@ function square() {
         calculate();
     }
 
-    currentInput = Math.pow( currentInput, 2 );
+    currentInput = Math.pow( currentInput, 2 ); //the same as multiplying that number to itself
     operator = 0;
     memory = "0";
     displayCurrentInput();
@@ -192,6 +197,7 @@ function square() {
 
 /**
  * Turns the current number into it's square root when the √x button is selected
+ * @return {number} if no button was selected, returns what was there
  */
 function squareRoot() {
 
@@ -213,6 +219,7 @@ function squareRoot() {
 
 /**
  * Calculates what the inverse of the current number is when the 1/X button is selected
+ * @return {number} if no button was selected, returns what was there, but if the number is zero it will return error as there is no inverse of 0
  */
 function inverse() {
 
@@ -241,6 +248,7 @@ function inverse() {
 
 /**
  * Takes the current number and gives the Sin of it when the sin button is selected, a trigometric function
+ * @return {number} if no button was selected, returns what was there
  */
 function tigSin(){
 
@@ -264,6 +272,7 @@ function tigSin(){
 
 /**
  * Takes the current number and gives the Cos of it when the cos button is selected, a trigometric function
+ * @return {number} if no button was selected, returns what was there
  */
 function tigCos(){
 
