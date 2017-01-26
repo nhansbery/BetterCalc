@@ -1,8 +1,10 @@
 var current_input = "";
-var memory = "0";
-var operator = 0;
+var memory = "0"; //always starts with zero displayed on the screen
+var operator = 0; //always starts out with no (or zero) operator being selected
 var degree = "true";
-
+/**
+ * Displays the current input onto the calculator's screen
+ */
 function displayCurrentInput() {
     if (current_input == "") {
         document.getElementById('screen').value = memory;
@@ -11,7 +13,10 @@ function displayCurrentInput() {
         document.getElementById('screen').value = current_input;
     }
 }
-
+/**
+ * Adds the number onto the screen that user selects until it reaches 30 numbers, then restarts
+ * @param {number} dig the button/value that the user selects that they want to display
+ */
 function addDigit(dig) {
     if ((eval(current_input) == 0) && (current_input.indexOf(".") == -1)) {
         current_input = dig;
@@ -21,7 +26,9 @@ function addDigit(dig) {
     }
     displayCurrentInput();
 }
-// Adds a decimal to the current input
+/**
+ * Adds a decimal to the number on the screen each time the user selects it
+ */
 function addDecimal() {
     if (current_input.length == 0) {
         //no leading ".", use "0."
@@ -35,19 +42,27 @@ function addDecimal() {
     }
     displayCurrentInput();
 }
-// Clears everything.
+/**
+ * Clears all of the values that are on the calculator screen
+ */
 function allClear() {
     current_input = "";
     operator = 0; //clear operator
     memory = "0"; //clear memory
     displayCurrentInput();
 }
-// Clear the current input back to 0
+/**
+ * Clears the current input value to 0
+ */
 function cancel() {
     current_input = "";
     displayCurrentInput();
 }
-// Stores the last operator pushed for multiply, divide, add, or subtract.
+/**
+ * Stores the last operator pushed for multiply, divide, add, or subtract.
+ * @param {object} op all of the different operations like Addition (+), Subtraction (-), Multiplication (*), and Division (/).
+ * @return {number} if there is no operator selected, returns what was there originally
+ */
 function storeOperator(op) {
     if (current_input == "") {
         return;
@@ -71,7 +86,9 @@ function storeOperator(op) {
     current_input = "";
     displayCurrentInput();
 }
-// Calculate using operator, the memory and what is current
+/**
+ * Calculates the inputted numbers using all of the operators on the calculator using the memory and what is current
+ */
 function calculate() {
     if (operator == 1) {
         current_input = eval(memory) * eval(current_input);
@@ -92,7 +109,10 @@ function calculate() {
     memory = "0"; //clear memory
     displayCurrentInput();
 }
-// Change the sign of the current input
+/**
+ * Changes the sign of the current input if the wrong operator was selected; i.e. multiplication operator is selected when you are trying to execute an addition problem, changeSign is selected and they switch
+ * @return {number} if there is no change to the sign requested, returns what was there originally
+ */
 function changeSign() {
     if (current_input == "") {
         return;
@@ -100,20 +120,26 @@ function changeSign() {
     current_input = current_input * (-1);
     displayCurrentInput();
 }
-// Change the current input to a percentage
+/**
+ * Changes the number that is on the screen currently from an integer into a percentage
+ * @return {number} if no button was selected, returns what was there
+ */
 function percentage() {
-    if (current_input == "") {
+    if (currentInput == "") {
         return;
     }
     if (operator > 0) {
         calculate();
     }
-    current_input = current_input / 100;
+    current_input = current_input / 100; //the percentage of a number is always that number divided by 100
     operator = 0;
     memory = "0";
     displayCurrentInput();
 }
-// Calculate the factorial of the current input
+/**
+ * Calculates the factorial of the current number when the X! button is selected
+ * @return {number} if no button was selected, returns what was there
+ */
 function factorial() {
     if (current_input == "") {
         return;
@@ -138,7 +164,10 @@ function factorial() {
     memory = "0";
     displayCurrentInput();
 }
-// Calculate the square of the current input
+/**
+ * Squares the number (x = x*x), when the x^2 button is selected
+ * @return {number} if no button was selected, returns what was there
+ */
 function square() {
     if (current_input == "") {
         return;
@@ -146,12 +175,15 @@ function square() {
     if (operator > 0) {
         calculate();
     }
-    current_input = Math.pow(current_input, 2);
+    curren_input = Math.pow(currentInput, 2); //the same as multiplying that number to itself
     operator = 0;
     memory = "0";
     displayCurrentInput();
 }
-// Calculate the square root of the current input
+/**
+ * Turns the current number into it's square root when the √x button is selected
+ * @return {number} if no button was selected, returns what was there
+ */
 function squareRoot() {
     if (current_input == "") {
         return;
@@ -164,7 +196,10 @@ function squareRoot() {
     memory = "0";
     displayCurrentInput();
 }
-// Calculate the inverse of the current input
+/**
+ * Calculates what the inverse of the current number is when the 1/X button is selected
+ * @return {number} if no button was selected, returns what was there, but if the number is zero it will return error as there is no inverse of 0
+ */
 function inverse() {
     if (current_input == "") {
         return;
@@ -184,7 +219,10 @@ function inverse() {
     memory = "0";
     displayCurrentInput();
 }
-
+/**
+ * Takes the current number and gives the Sin of it when the sin button is selected, a trigometric function
+ * @return {number} if no button was selected, returns what was there
+ */
 function tigSin() {
     if (current_input == "") {
         return;
@@ -199,7 +237,10 @@ function tigSin() {
     memory = "0";
     displayCurrentInput();
 }
-
+/**
+ * Takes the current number and gives the Cos of it when the cos button is selected, a trigometric function
+ * @return {number} if no button was selected, returns what was there
+ */
 function tigCos() {
     if (current_input == "") {
         return;
