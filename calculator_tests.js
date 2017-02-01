@@ -56,7 +56,12 @@ QUnit.test( "Square root test", function( assert ) {
 });
 
 //US6: As a user I want to be able to calculate the square of a number by simply pressing a button.
-
+QUnit.test( "Number square test", function( assert ) {
+    allClear();
+    addDigit('25.67');
+    square();
+    assert.equal(document.getElementById("screen").value, "658.9489000000001", "Passed - Expected 658.9489000000001");
+});
 
 //US7: As a user who sometimes makes mistakes when pressing buttons on the keypad, I want to be able to press a button that clears my current input, but not the stored procedure.
 
