@@ -40,10 +40,20 @@ QUnit.test( "Get inverse of number test", function( assert ) {
 });
 
 //US4: As a user I want to be able to calculate the factorial of a number by simply pressing a button.
-
+QUnit.test( "Get the factorial of number test", function( assert ) {
+    allClear();
+    addDigit('99');
+    factorial();
+    assert.equal(document.getElementById("screen").value, "9.332621544394417e+155", "Passed - Expected 9.332621544394417e+155");
+});
 
 //US5: As a user I want to be able to calculate the square root of a number by simply pressing a button.
-
+QUnit.test( "Square root test", function( assert ) {
+    allClear();
+    addDigit('81');
+    squareRoot();
+    assert.equal(document.getElementById("screen").value, "9", "Passed - Expected 9");
+});
 
 //US6: As a user I want to be able to calculate the square of a number by simply pressing a button.
 
