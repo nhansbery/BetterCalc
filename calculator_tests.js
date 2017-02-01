@@ -72,6 +72,10 @@ QUnit.test( "Clear current input test", function( assert ) {
 
 //US8: Bug Alert! There is a bug in the calculator app! As a careless user I want to be told that I just tried to divide by zero, which I should be told is not allowed.
 
-
 //US9: Bug Alert! As an easily confused user I don't want to be able to type numbers into the screen that causes some of the numbers to disappear off the screen, thus confusing me about what I actually typed.
+QUnit.test( "Number cut off test", function( assert ) {
+    var currentInput = '012345678910111213141516171819';
+    addDigit('3');
+    assert.equal(document.getElementById("screen").value, "3", "Passed - Expected the 30th digit and above/what is added to replace the current input");
+});
 
