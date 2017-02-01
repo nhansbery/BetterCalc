@@ -28,7 +28,7 @@ QUnit.test( "Change to percent test", function( assert ) {
     allClear();
     addDigit('8');
     percentage();
-    assert.equal(document.getElementById("screen").value, "-0.2", "Passed - Expected -0.2");
+    assert.equal(document.getElementById("screen").value, "0.08", "Passed - Expected 0.08");
 });
 
 //US3: As a user, I want to be able to calculate the inverse of a number simply by pressing a button.
