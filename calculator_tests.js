@@ -64,7 +64,11 @@ QUnit.test( "Number square test", function( assert ) {
 });
 
 //US7: As a user who sometimes makes mistakes when pressing buttons on the keypad, I want to be able to press a button that clears my current input, but not the stored procedure.
-
+QUnit.test( "Clear current input test", function( assert ) {
+    var currentInput;
+    cancel();
+    assert.equal(document.getElementById("screen").value, "0", "Passed - Expected no value on screen");
+});
 
 //US8: Bug Alert! There is a bug in the calculator app! As a careless user I want to be told that I just tried to divide by zero, which I should be told is not allowed.
 
