@@ -85,4 +85,13 @@ QUnit.test( "Number cut off test", function( assert ) {
     addDigit('3');
     assert.equal(document.getElementById("screen").value, "3", "Passed - Expected the 30th digit and above/what is added to replace the current input");
 });
+//US10: As a user who is a frequent user of the unit circle and currently am in Pre-Calculus, I want to be able to find the sine of a number that I plug in.
+QUnit.test( "Sine of a number test", function( assert ) {
+    allClear();
+    addDigit(90);
+    tigSin();
+    assert.equal(document.getElementById("screen").value, "1", "Passed - Expected 1");
+});
+
+
 
