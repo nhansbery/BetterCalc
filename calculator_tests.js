@@ -92,6 +92,11 @@ QUnit.test( "Sine of a number test", function( assert ) {
     tigSin();
     assert.equal(document.getElementById("screen").value, "1", "Passed - Expected 1");
 });
-
-
+//US11: As a user who is a frequent user of the unit circle and currently am in Calculus, I want to be able to find the cosine of a number using the calculator.
+QUnit.test( "Cosine of a number test", function( assert ) {
+    allClear();
+    addDigit(270);
+    tigCos();
+    assert.equal(document.getElementById("screen").value, "-1.8369701987210297e-16", "Passed - Expected -1.8369701987210297e-16");
+});
 
