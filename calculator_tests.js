@@ -99,4 +99,3 @@ QUnit.test( "Cosine of a number test", function( assert ) {
     tigCos();
     assert.equal(document.getElementById("screen").value, "-1.8369701987210297e-16", "Passed - Expected -1.8369701987210297e-16");
 });
-
